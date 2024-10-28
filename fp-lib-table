@@ -1,0 +1,6 @@
+(fp_lib_table
+  (lib (name Switch_Keyboard_Hotswap_Kailh)(type KiCad)(uri /home/mu/Documents/3dp/mu_kb/libs/keyswitches/keyswitch-kicad-library/footprints/Switch_Keyboard_Hotswap_Kailh.pretty)(options "")(descr ""))
+  (lib (name promicro)(type KiCad)(uri /home/mu/Documents/3dp/mu_kb/libs/ProMicroKiCad/promicro.pretty)(options "")(descr ""))
+  (lib (name rjs)(type KiCad)(uri /home/mu/Documents/3dp/mu_kb/libs/rjs)(options "")(descr ""))
+  (lib (name Panelization)(type KiCad)(uri /home/mu/Documents/3dp/mu_kb/libs/Panelization.pretty)(options "")(descr ""))
+)
