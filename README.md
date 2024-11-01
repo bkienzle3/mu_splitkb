@@ -7,7 +7,7 @@ WIP.
 
 ## Bill of materials
 
-<br>Kailh Choc V1 key switches x 36
+Kailh Choc V1 key switches x 36
 <br>Kailh Choc V1 Hotswap sockets x 36
 <br>Elite-C/ProMicro x 2
 <br>1N4148 MiniMELF diode x 36
