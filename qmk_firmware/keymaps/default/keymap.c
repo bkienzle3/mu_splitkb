@@ -1,0 +1,204 @@
+#include QMK_KEYBOARD_H
+
+
+/* mu keymap
+ * home row mods
+ */
+
+
+// layers
+enum layers {
+    BASE = 0,
+    NAV,
+    SYM,
+    MOUSE,
+    NUMS,
+    FNS,
+    MEDIA,
+    CFG,
+    BUTTON,
+};
+
+
+//// home row mods for qwerty
+#define KC_HRA LGUI_T(KC_A)
+#define KC_HRS LALT_T(KC_S)
+#define KC_HRD LSFT_T(KC_D)
+#define KC_HRF LCTL_T(KC_F)
+#define KC_HRJ LCTL_T(KC_J)
+#define KC_HRK LSFT_T(KC_K)
+#define KC_HRL LALT_T(KC_L)
+#define KC_HRQU LGUI_T(KC_QUOT)
+
+// button layer tap
+#define KC_BLTZ LT(BUTTON, KC_Z)
+#define KC_BLTSH LT(BUTTON, KC_SLSH)
+
+//// thumb buttons
+#define KC_THT LT(NAV,KC_TAB)
+#define KC_THS LT(MOUSE,KC_SPC)
+#define KC_THE LT(SYM,KC_ENT)
+#define KC_THB LT(NUMS,KC_BSPC)
+#define KC_THESC LT(MEDIA,KC_ESC)
+#define KC_THDEL LT(FNS,KC_DEL)
+
+//// copy/paste
+#define KC_MCOPY LCTL(KC_C)
+#define KC_MPSTE LCTL(KC_V)
+#define KC_MCUT LCTL(KC_X)
+#define KC_MUNDO LCTL(KC_Z)
+#define KC_MREDO LCTL(KC_Y)
+
+//// misc
+#define KC_PRVL LALT(KC_LEFT)
+#define KC_MSBCK KC_MS_BTN4
+#define KC_MSFWD KC_MS_BTN5
+
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
+
+
+   // base (qwerty) layer
+   [BASE] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+        KC_HRA,  KC_HRS,  KC_HRD,  KC_HRF,    KC_G,                         KC_H,  KC_HRJ,  KC_HRK,  KC_HRL, KC_HRQU,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+       KC_BLTZ,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT,KC_BLTSH,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                 KC_THESC,  KC_THT,  KC_THS,     KC_THE,  KC_THB, KC_THDEL
+                              //`--------------------------'  `--------------------------'
+   ),
+
+   // nav layer
+   [NAV] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+        KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,                     KC_MPSTE,KC_MCOPY, KC_MCUT,KC_MUNDO,KC_MREDO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+       KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_PRVL,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_CAPS,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+        KC_APP,  KC_F18,  KC_F19,  KC_F21,  KC_F22,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END,  KC_INS,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                  KC_TRNS, KC_TRNS, KC_TRNS,     KC_ENT, KC_BSPC,  KC_DEL
+                              //`--------------------------'  `--------------------------'
+   ),
+
+   // mouse/fancy/orphans
+   [MOUSE] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                     KC_MSBCK,   KC_NO,   KC_NO,KC_MSFWD,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+       KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL,   KC_NO,                      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                      KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,   KC_NO,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                  KC_TRNS, KC_TRNS, KC_TRNS,    KC_BTN1, KC_BTN2,  KC_BTN3
+                              //`--------------------------'  `--------------------------'
+   ),
+
+   // convienience buttons
+   [BUTTON] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+         KC_NO,  KC_F10,  KC_F11,  KC_F12,  KC_F24,                        KC_NO,   KC_NO,   KC_NO, KC_WAKE,  KC_PWR,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+         KC_NO,   KC_NO,   KC_NO,   KC_F5,KC_MUNDO,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+         KC_NO, KC_MCUT,KC_MCOPY,KC_MPSTE,KC_MREDO,                      KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,   KC_NO,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                    KC_NO,   KC_NO,   KC_NO,      KC_NO,   KC_NO,   KC_NO
+                              //`--------------------------'  `--------------------------'
+   ),
+
+   // numbers
+   [NUMS] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+       KC_LBRC,    KC_7,    KC_8,    KC_9, KC_RBRC,                        KC_NO,    KC_A,    KC_B,    KC_C,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+       KC_SCLN,    KC_4,    KC_5,    KC_6,  KC_EQL,                        KC_NO, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+        KC_GRV,    KC_1,    KC_2,    KC_3, KC_BSLS,                        KC_NO,    KC_D,    KC_E,    KC_F,   KC_NO,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                   KC_DOT,  KC_MINS,   KC_0,    KC_TRNS, KC_TRNS, KC_TRNS
+                              //`--------------------------'  `--------------------------'
+   ),
+
+   // symbol/extra functions
+   [SYM] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+       KC_LCBR, KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+       KC_COLN,  KC_DLR, KC_PERC, KC_CIRC, KC_PLUS,                        KC_NO, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+       KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                  KC_LPRN, KC_RPRN, KC_UNDS,    KC_TRNS, KC_TRNS, KC_TRNS
+                              //`--------------------------'  `--------------------------'
+   ),
+
+
+   // function keys
+   [FNS] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+        KC_F12,   KC_F7,   KC_F8,   KC_F9, KC_PSCR,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+        KC_F11,   KC_F4,   KC_F5,   KC_F6, KC_SCRL,                        KC_NO, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+        KC_F10,   KC_F1,   KC_F2,   KC_F3, KC_PAUS,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                   KC_ESC,  KC_TAB,  KC_SPC,    KC_TRNS, KC_TRNS, KC_TRNS
+                              //`--------------------------'  `--------------------------'
+   ),
+
+
+   // media keys
+   [MEDIA] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+         KC_NO,   KC_NO,   KC_NO,   KC_NO, MO(CFG),                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+       KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL,   KC_NO,                      KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                  KC_TRNS, KC_TRNS, KC_TRNS,    KC_MSTP, KC_MPLY, KC_MUTE
+                              //`--------------------------'  `--------------------------'
+   ),
+
+//todo:
+// - continue adapting https://github.com/manna-harbour/miryoku/tree/master/docs/reference
+
+
+   // hidden functions, reset, etc
+   [CFG] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+         KC_NO,   KC_NO,   DT_UP, DT_PRNT,   KC_NO,                        KC_NO,   KC_NO,   KC_NO,   KC_NO, QK_BOOT,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+         KC_NO,   KC_NO, DT_DOWN,   KC_NO,   KC_NO,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+         KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                  KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS
+                              //`--------------------------'  `--------------------------'
+   )
+};
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_HRD:
+            return TAPPING_TERM - 40;
+        case KC_HRK:
+            return TAPPING_TERM - 40;
+        case KC_HRS:
+            return TAPPING_TERM + 50;
+        case KC_HRL:
+            return TAPPING_TERM + 50;
+        case KC_HRA:
+            return TAPPING_TERM + 50;
+        case KC_HRQU:
+            return TAPPING_TERM + 50;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
