@@ -1,9 +1,12 @@
 # mu_splitkb
 Mu Split Keyboard - 36-key columnar staggered split keyboard
 
+[[mu.jpg]]
+
 ## Firmware
 
-WIP.
+Firmware is located in qmk_firmware. I'm planning to have this added into the official repo.
+Keymaps are based on Miryoku (manna-harbour/miryoku), with my own customizations, of course.
 
 ## Bill of materials
 
