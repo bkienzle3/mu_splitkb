@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
         KC_F11,   KC_F4,   KC_F5,   KC_F6, KC_SCRL,                        KC_NO, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI,
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-        KC_F10,   KC_F1,   KC_F2,   KC_F3, KC_PAUS,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_F10,   KC_F1,   KC_F2,   KC_F3, KC_PAUS,                         KC_Q,   KC_NO, KC_LEFT, KC_RGHT,   KC_NO,
    //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
                                    KC_ESC,  KC_TAB,  KC_SPC,    KC_TRNS, KC_TRNS, KC_TRNS
                               //`--------------------------'  `--------------------------'
@@ -164,9 +164,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                   KC_TRNS, KC_TRNS, KC_TRNS,    KC_MSTP, KC_MPLY, KC_MUTE
                               //`--------------------------'  `--------------------------'
    ),
-
-//todo:
-// - continue adapting https://github.com/manna-harbour/miryoku/tree/master/docs/reference
 
 
    // hidden functions, reset, etc
