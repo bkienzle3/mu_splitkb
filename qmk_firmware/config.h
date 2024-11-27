@@ -3,10 +3,6 @@
 
 #pragma once
 
-//#define MATRIX_COL_PINS { D1, D0, D4, C6, D7 }
-//#define MATRIX_ROW_PINS { E6, B4, B5, B6 }
-
-
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
@@ -38,8 +34,5 @@
 
 // homerow mods
 #define TAPPING_TERM 200
-//#define PERMISSIVE_HOLD
-#define IGNORE_MOD_TAP_INTERRUPT // this is enabled by default now.
-#define QUICK_TAP_TERM 80
+#define QUICK_TAP_TERM 90
 #define TAPPING_TERM_PER_KEY
-//#define PREVENT_STUCK_MODIFIERS
