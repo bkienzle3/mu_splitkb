@@ -17,6 +17,9 @@ enum layers {
     MEDIA,
     CFG,
     BUTTON,
+    GFPS,
+    GGEN,
+    GEXT,
 };
 
 
@@ -53,6 +56,13 @@ enum layers {
 #define KC_PRVL LALT(KC_LEFT)
 #define KC_MSBCK KC_MS_BTN4
 #define KC_MSFWD KC_MS_BTN5
+
+/// gaming
+#define KC_GEXT MO(GEXT)
+#define KC_GFPS TG(GFPS)
+#define KC_GGEN TG(GGEN)
+#define KC_BASE TG(BASE)
+#define KC_ENTGX LT(GEXT,KC_ENT)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -94,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
          KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                      KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,   KC_NO,
    //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-                                  KC_TRNS, KC_TRNS, KC_TRNS,    KC_BTN1, KC_BTN2,  KC_BTN3
+                                  KC_TRNS, KC_TRNS, KC_TRNS,    KC_BTN1, KC_BTN2, KC_BTN3
                               //`--------------------------'  `--------------------------'
    ),
 
@@ -116,9 +126,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //,--------------------------------------------.                    ,--------------------------------------------.
        KC_LBRC,    KC_7,    KC_8,    KC_9, KC_RBRC,                        KC_NO,    KC_A,    KC_B,    KC_C,   KC_NO,
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-       KC_SCLN,    KC_4,    KC_5,    KC_6,  KC_EQL,                        KC_NO, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI,
+       KC_SCLN,    KC_4,    KC_5,    KC_6,  KC_EQL,                      KC_GFPS, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI,
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-        KC_GRV,    KC_1,    KC_2,    KC_3, KC_BSLS,                        KC_NO,    KC_D,    KC_E,    KC_F,   KC_NO,
+        KC_GRV,    KC_1,    KC_2,    KC_3, KC_BSLS,                      KC_GGEN,    KC_D,    KC_E,    KC_F,   KC_NO,
    //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
                                    KC_DOT,  KC_MINS,   KC_0,    KC_TRNS, KC_TRNS, KC_TRNS
                               //`--------------------------'  `--------------------------'
@@ -133,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
        KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
    //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-                                  KC_LPRN, KC_RPRN, KC_UNDS,    KC_TRNS, KC_TRNS, KC_TRNS
+                                  KC_LPRN, KC_UNDS, KC_RPRN,    KC_TRNS, KC_TRNS, KC_TRNS
                               //`--------------------------'  `--------------------------'
    ),
 
@@ -165,6 +175,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                               //`--------------------------'  `--------------------------'
    ),
 
+
+   // FPS games, base layer
+   [GFPS] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+       KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                  KC_LALT, KC_GEXT,  KC_SPC,    KC_TRNS, KC_TRNS, KC_TRNS
+                              //`--------------------------'  `--------------------------'
+   ),
+
+   // Generic gaming layer
+   // This still needs work. For example, if a game uses Ctrl, Alt, or Shift, you must switch back to the base layer.
+   [GGEN] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+          KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_LCTL,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                   KC_ESC,  KC_TAB,  KC_SPC,   KC_GEXT, KC_BSPC,  KC_DEL
+                              //`--------------------------'  `--------------------------'
+   ),
+
+   // Gaming, Extra layer, Mainly used for FPS, but called from generic to return to base.
+   [GEXT] = LAYOUT_split_3x5_3(
+   //,--------------------------------------------.                    ,--------------------------------------------.
+          KC_1,    KC_G, KC_TRNS,    KC_B,    KC_4,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+          KC_2, KC_TRNS, KC_TRNS, KC_TRNS,    KC_5,                      KC_GFPS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
+          KC_3,    KC_G,    KC_H,    KC_T,    KC_6,                      KC_GGEN,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+   //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
+                                  KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS
+                              //`--------------------------'  `--------------------------'
+   ),
 
    // hidden functions, reset, etc
    [CFG] = LAYOUT_split_3x5_3(
