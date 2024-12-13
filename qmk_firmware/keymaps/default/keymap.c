@@ -179,13 +179,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    // FPS games, base layer
    [GFPS] = LAYOUT_split_3x5_3(
    //,--------------------------------------------.                    ,--------------------------------------------.
-        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,                        KC_NO,   KC_NO,   KC_NO,    KC_O,    KC_P,
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-       KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,                      KC_GFPS,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
-       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,                        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,                        KC_NO,    KC_M,   KC_NO,   KC_F1,   KC_NO,
    //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-                                  KC_LALT, KC_GEXT,  KC_SPC,    KC_TRNS, KC_TRNS, KC_TRNS
+                                  KC_LALT, KC_GEXT,  KC_SPC,     KC_ENT,  KC_ESC,   KC_NO
                               //`--------------------------'  `--------------------------'
    ),
 
@@ -199,7 +199,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
           KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,
    //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-                                   KC_ESC,  KC_TAB,  KC_SPC,   KC_GEXT,  KC_ESC,  KC_DEL
+                                   KC_ESC,  KC_TAB,  KC_SPC,   KC_ENTGX, KC_LSFT,  KC_DEL
                               //`--------------------------'  `--------------------------'
    ),
 
@@ -212,7 +212,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    //|--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------|
           KC_3,    KC_G,    KC_H,    KC_T,    KC_6,                      KC_GGEN,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
    //|--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------|
-                                  KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS
+                                     KC_N, KC_TRNS, KC_TILD,    KC_TRNS, KC_TRNS, KC_TRNS
                               //`--------------------------'  `--------------------------'
    ),
 
